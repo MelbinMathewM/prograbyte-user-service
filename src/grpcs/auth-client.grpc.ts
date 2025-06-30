@@ -15,8 +15,8 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 const authProto = grpc.loadPackageDefinition(packageDefinition) as any;
 
 const client = new authProto.auth.AuthService(
-    `${env.AUTH_DOMAIN}:${50051}`,
-    grpc.credentials.createInsecure()
+    `${env.AUTH_DOMAIN}:${443}`,
+    grpc.credentials.createSsl()
 );
 
 export default client;
